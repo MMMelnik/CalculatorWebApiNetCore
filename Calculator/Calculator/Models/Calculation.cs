@@ -7,7 +7,9 @@ namespace Calculator.Models
         Add,
         Sub,
         Mul,
-        Div
+        Div,
+        Rem,
+        Sqrt
     }
 
     public class Calculation

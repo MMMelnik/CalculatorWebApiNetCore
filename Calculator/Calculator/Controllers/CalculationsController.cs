@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -51,6 +52,7 @@ namespace Calculator.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <param name="calculation"></param>
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCalculation(int id, Calculation calculation)
         {
@@ -139,19 +141,67 @@ namespace Calculator.Controllers
             switch (calculation.Operation)
             {
                 case Operations.Add:
-                    calculation.Result = calculation.FirstValue + calculation.SecondValue;
+                    try
+                    {
+                        calculation.Result = calculation.FirstValue + calculation.SecondValue;
+                    }
+                    catch (OverflowException)
+                    {
+                        throw new ArgumentException($"Overflow occurred when adding {calculation.FirstValue} to {calculation.SecondValue}.");
+                    }
                     break;
                 case Operations.Sub:
-                    calculation.Result = calculation.FirstValue - calculation.SecondValue;
+                    try
+                    {
+                        calculation.Result = calculation.FirstValue - calculation.SecondValue;
+                    }
+                    catch (Exception)
+                    {
+                        throw new ArgumentException($"Error occurred when subtracting {calculation.SecondValue} from {calculation.FirstValue}.");
+                    }
                     break;
                 case Operations.Mul:
-                    calculation.Result = calculation.FirstValue * calculation.SecondValue;
+                    try
+                    {
+                        calculation.Result = calculation.FirstValue * calculation.SecondValue;
+                    }
+                    catch (OverflowException)
+                    {
+                        throw new ArgumentException($"Overflow occurred when multiplying {calculation.FirstValue} on {calculation.SecondValue}.");
+                    }
                     break;
                 case Operations.Div:
-                    calculation.Result = calculation.FirstValue / calculation.SecondValue;
+                    try
+                    {
+                        calculation.Result = calculation.FirstValue / calculation.SecondValue;
+                    }
+                    catch (DivideByZeroException)
+                    {
+                        throw new ArgumentException($"Division by zero!");
+                    }
+                    break;
+                case Operations.Rem:
+                    try
+                    {
+                        calculation.Result = calculation.FirstValue % calculation.SecondValue;
+                    }
+                    catch (Exception)
+                    {
+                        throw new ArgumentException($"Error occurred when computing the remainder after dividing {calculation.FirstValue} by {calculation.SecondValue}.");
+                    }
+                    break;
+                case Operations.Sqrt:
+                    try
+                    {
+                        calculation.Result = Math.Sqrt(calculation.FirstValue);
+                    }
+                    catch (Exception)
+                    {
+                        throw new ArgumentException($"Error occurred when computing the square root of {calculation.FirstValue}.");
+                    }
                     break;
                 default:
-                    // If Operation value is not correct method assign null as an object`s value
+                    // If Operation value is not correct, method assign null as an object`s value
                     calculation = null;
                     break;
             }
