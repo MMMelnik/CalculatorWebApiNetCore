@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Calculator</name>
+    </assembly>
+    <members>
+        <member name="M:Calculator.Controllers.CalculationsController.GetCalculations">
+            <summary>
+            Returns a history of calculations.
+            </summary>
+            <returns>All previous calculations.</returns>
+        </member>
+        <member name="M:Calculator.Controllers.CalculationsController.GetCalculation(System.Int32)">
+            <summary>
+            Returns a calculation by Id.
+            </summary>
+            <param name="id"></param>
+            <returns>Calculation with specified Id.</returns>
+        </member>
+        <member name="M:Calculator.Controllers.CalculationsController.PutCalculation(System.Int32,Calculator.Models.Calculation)">
+            <summary>
+            Replace existing calculation from history with a new one Id.
+            </summary>
+            <param name="id"></param>
+            <param name="calculation"></param>
+        </member>
+        <member name="M:Calculator.Controllers.CalculationsController.PostCalculation(Calculator.Models.Calculation)">
+             <summary>
+             Creates a new Calculation.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Calculation
+                 {
+                    "id": 0,
+                    "firstValue": 20,
+                    "secondValue": 10,
+                    "operation": "Add",
+                    "result": 0
+                 }
+            
+             </remarks>
+             <param name="calculation"></param>
+             <returns>Calculation with updated result</returns>
+             <response code="201">Returns the newly created item with result</response>
+             <response code="400">If the item is null</response>
+        </member>
+        <member name="M:Calculator.Controllers.CalculationsController.DeleteCalculation(System.Int32)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="id"></param> 
+        </member>
+    </members>
+</doc>
