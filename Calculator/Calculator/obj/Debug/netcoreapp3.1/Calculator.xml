@@ -19,7 +19,7 @@
         </member>
         <member name="M:Calculator.Controllers.CalculationsController.PutCalculation(System.Int32,Calculator.Models.Calculation)">
             <summary>
-            Replace existing calculation from history with a new one Id.
+            Replace existing calculation with matching Id in history with a new one.
             </summary>
             <param name="id"></param>
             <param name="calculation"></param>
@@ -48,9 +48,44 @@
         </member>
         <member name="M:Calculator.Controllers.CalculationsController.DeleteCalculation(System.Int32)">
             <summary>
-            Deletes a specific TodoItem.
+            Deletes a calculation with matching Id from history.
             </summary>
             <param name="id"></param> 
+        </member>
+        <member name="T:Calculator.Models.Operations">
+            <summary>
+            Gets or Sets Operation for Calculation
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Add">
+            <summary>
+            Enum Add for "Addition"
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Sub">
+            <summary>
+            Enum Sub for "Subtraction"
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Mul">
+            <summary>
+            Enum Mul for "Multiplication"
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Div">
+            <summary>
+            Enum Div for "Division"
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Rem">
+            <summary>
+            Enum Rem for "Remainder"
+            </summary>
+        </member>
+        <member name="F:Calculator.Models.Operations.Sqrt">
+            <summary>
+            Enum Sqrt for "Square root"
+            </summary>
         </member>
     </members>
 </doc>

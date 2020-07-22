@@ -48,11 +48,11 @@ namespace Calculator.Controllers
         }
 
         /// <summary>
-        /// Replace existing calculation from history with a new one Id.
+        /// Replace existing calculation with matching Id in history with a new one.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="calculation"></param>
-        
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCalculation(int id, Calculation calculation)
         {
