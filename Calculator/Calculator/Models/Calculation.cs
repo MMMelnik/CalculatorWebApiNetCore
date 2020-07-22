@@ -7,6 +7,7 @@ namespace Calculator.Models
 {
     /// <summary>
     /// Gets or Sets Operation for Calculation
+    /// Add, Sub, Mul, Div, Rem, Sqrt
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum Operations
