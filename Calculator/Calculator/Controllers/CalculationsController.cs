@@ -113,7 +113,7 @@ namespace Calculator.Controllers
         }
 
         /// <summary>
-        /// Deletes a specific TodoItem.
+        /// Deletes a calculation with matching Id from history.
         /// </summary>
         /// <param name="id"></param> 
         [HttpDelete("{id}")]
